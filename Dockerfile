@@ -1,10 +1,10 @@
-from node
+FROM node
 
-RUN mkdir -p server/
+RUN mkdir app/
 ADD package.json app/package.json
-WORKDIR server/
+WORKDIR app/
 RUN yarn
-ADD . server/
+ADD . app/
 
 EXPOSE 3000
 
