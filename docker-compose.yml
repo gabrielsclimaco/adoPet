@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  frontend:
+    image: gabrielsclimaco/adopet-frontend:latest
+    links:
+      - backend
+    volumes:
+      - $(pwd):/app
+    ports:
+      - "8081:8081"
+    enviroment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+  backend:
+    image: gabrielsclimaco/adopet-backend:latest
+    links:
+      - rethink
+    volumes:
+      - $(pwd):/app
+    ports:
+      - "3000:3000"
+    enviroment:
+      - NODE_ENV=development
+    depends_on:
+      - rethink
+  rethink:
+    image: rethinkdb:latest
+    volumes:
+      - $(pwd):/data
