@@ -1,10 +1,10 @@
 FROM node
 
-RUN mkdir app/
+RUN mkdir /app
 ADD package.json app/package.json
-WORKDIR app/
+WORKDIR /app
 RUN yarn
-ADD . app/
+ADD . /app
 
 EXPOSE 8081
 
