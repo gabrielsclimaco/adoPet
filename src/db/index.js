@@ -1,4 +1,5 @@
-var thinky = require('thinky')()
+import config from '../config'
+var thinky = require('thinky')(config.db)
 var { type, r } = thinky
 
 function init () {

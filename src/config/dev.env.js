@@ -1,12 +1,12 @@
-export default {
+module.exports = {
   NODE_ENV: '"development"',
-  WEBHOST: (process.env.WEBHOST || 'http://localhost:8080'),
+  WEB_HOST: (process.env.WEB_HOST || 'http://localhost:8081'),
   host: 'localhost',
   port: '3000',
-  database: {
-    host: 'localhost',
-    port: '27017',
-    name: 'luzia-db'
+  db: {
+    name: process.env.DB_NAME || 'test',
+    host: process.env.DB_HOST || 'localhost',
+    port: process.env.DB_PORT || 28015
   },
   secret: 'bora ver de qual eh essa treta'
 }
