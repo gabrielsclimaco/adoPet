@@ -16,3 +16,5 @@ others/
 # test
 .nyc_output
 coverage
+
+db_data/

@@ -38,4 +38,4 @@ services:
   rethink:
     image: rethinkdb:latest
     volumes:
-      - ./rethinkdb_data:/data/rethinkdb_data
+      - ./db_data:/data/rethinkdb_data
