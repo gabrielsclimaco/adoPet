@@ -2,30 +2,40 @@ version: "3"
 
 services:
   frontend:
+    build: ./frontend
     image: gabrielsclimaco/adopet-frontend:latest
     links:
       - backend
     volumes:
-      - $(pwd):/app
+      # - ./frontend:/app
+      - ./frontend/src:/app/src
+      - ./frontend/build:/app/build
+      - ./frontend/static:/app/static
+      - ./frontend/test:/app/test
+      - ./frontend/config:/app/config
     ports:
       - "8081:8081"
-    enviroment:
+    environment:
       - NODE_ENV=development
     depends_on:
       - backend
   backend:
+    build: .
     image: gabrielsclimaco/adopet-backend:latest
     links:
       - rethink
     volumes:
-      - $(pwd):/app
+      # - ./:/app
+      - ./src:/app/src
     ports:
       - "3000:3000"
-    enviroment:
+    environment:
+      - DB_HOST=rethink
       - NODE_ENV=development
+      - WEB_HOST=http://frontend
     depends_on:
       - rethink
   rethink:
     image: rethinkdb:latest
     volumes:
-      - $(pwd):/data
+      - ./rethinkdb_data:/data/rethinkdb_data
