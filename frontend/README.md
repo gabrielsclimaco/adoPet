@@ -1,4 +1,4 @@
-# luzia-boilerplate-frontend
+# adopet-frontend
 
 > A Vue.js project
 
