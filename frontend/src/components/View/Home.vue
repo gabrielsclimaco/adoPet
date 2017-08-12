@@ -1,8 +1,11 @@
 <template lang='pug'>
 div.home
+  h1 {{ teste }}
 </template>
 
 <script>
+import api from '@/api/hello'
+
 export default {
   name: 'home',
   components: {
@@ -18,19 +21,20 @@ export default {
     }
   },
   props: {
-    /*
-    foo: {
-      type: String,
-      default: 'bar'
-    }
-    */
   },
   data () {
-    return {}
+    return {
+      teste: 'a'
+    }
   },
   computed: {
   },
   methods: {
+  },
+  async mounted () {
+    let { data } = await api.getWorld()
+
+    this.teste = data[0].title
   }
 }
 
