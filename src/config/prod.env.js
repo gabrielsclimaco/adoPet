@@ -4,7 +4,7 @@ module.exports = {
   host: 'localhost',
   port: '3000',
   db: {
-    name: process.env.DB_NAME || 'test',
+    name: process.env.DB_NAME || 'adopet-prod',
     host: process.env.DB_HOST || 'localhost',
     port: process.env.DB_PORT || 28015
   },
