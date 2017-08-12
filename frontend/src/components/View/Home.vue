@@ -1,15 +1,15 @@
 <template lang='pug'>
-div.home
-  h1 {{ teste }}
+  div.home
+    map
 </template>
 
 <script>
-import api from '@/api/hello'
+import Map from '@/components/Map'
 
 export default {
   name: 'home',
   components: {
-
+    Map
   },
   async beforeRouteEnter (to, from, next) {
     try {
@@ -24,17 +24,11 @@ export default {
   },
   data () {
     return {
-      teste: 'a'
     }
   },
   computed: {
   },
   methods: {
-  },
-  async mounted () {
-    let { data } = await api.getWorld()
-
-    this.teste = data[0].title
   }
 }
 
