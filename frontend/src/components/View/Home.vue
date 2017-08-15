@@ -1,15 +1,15 @@
 <template lang='pug'>
   div.home
-    map
+    brazilMap
 </template>
 
 <script>
-import Map from '@/components/Map'
+import BrazilMap from '@/components/BrazilMap'
 
 export default {
   name: 'home',
   components: {
-    Map
+    BrazilMap
   },
   async beforeRouteEnter (to, from, next) {
     try {
